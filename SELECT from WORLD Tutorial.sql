@@ -1,21 +1,21 @@
-1. Introduction
+#1. Introduction
 SELECT name, continent, population FROM world; 
 -----------------------------------------------------
-2. Large Countries
+#2. Large Countries
 SELECT name FROM world
 WHERE population >= 200000000 ;
 ------------------------------------------------------
-3. Per capita GDP
+#3. Per capita GDP
 SELECT name, gdp/population
 FROM world
 WHERE population >= 200000000 ;
 -----------------------------------------------------
-4. South America In millions
+#4. South America In millions
 SELECT name, population/1000000
 FROM world
 WHERE continent = 'South America'
 ---------------------------------------------------------
-5. France, Germany, Italy
+#5. France, Germany, Italy
 SELECT name , population
 FROM world
 WHERE name IN ('france','germany','italy')
