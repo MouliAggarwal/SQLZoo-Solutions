@@ -20,3 +20,36 @@ SELECT name , population
 FROM world
 WHERE name IN ('france','germany','italy')
 --------------------------------------------------------
+#6. United
+SELECT name
+FROM world
+WHERE name LIKE 'United%' ;
+--------------------------------------------------------
+#7. Two ways to be big
+SELECT name, population, area
+FROM world
+WHERE area > 3000000 OR population > 250000000 ;
+---------------------------------------------------------
+#8. One or the other (but not both)
+SELECT name, population, area
+FROM world
+WHERE area > 3000000 XOR population > 250000000 
+------------------------------------------------------------
+#9.Rounding
+SELECT name, 
+  ROUND(population / 1000000.0, 2) AS population_millions, 
+  ROUND(gdp / 1000000000.0, 2) AS gdp_billions
+FROM world
+WHERE continent = 'South America';
+-------------------------------------------------------------------
+#10. Trillion dollar economies
+SELECT name, ROUND(gdp/population , -3) AS 'per-capita GDP'
+FROM world
+WHERE gdp >= 1000000000000 
+-------------------------------------------------------------------
+#11. Name and capital have the same length
+SELECT name, capital
+  FROM world
+ WHERE LENGTH(name)= LENGTH(capital)
+---------------------------------------------------------------------
+
