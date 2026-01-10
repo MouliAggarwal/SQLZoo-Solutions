@@ -19,3 +19,15 @@ SELECT winner
 FROM nobel
 WHERE yr >= 2000 
 AND subject= 'peace'
+---------------------------------------------------
+#5. Literature in the 1980's
+SELECT yr,subject,winner
+FROM nobel
+WHERE yr BETWEEN 1980 AND 1989 
+AND subject = 'literature' ;
+-------------------------------------------------------
+#6. Only Presidents
+SELECT * FROM nobel
+ WHERE winner IN ('Theodore Roosevelt','Thomas Woodrow Wilson',
+  'Jimmy Carter','Barack Obama')
+--------------------------------------------------------------
