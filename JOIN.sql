@@ -55,3 +55,28 @@ FROM eteam
 JOIN goal ON id=teamid
 GROUP BY teamname
 -------------------------------------------------------------------------------
+#10.
+SELECT stadium , COUNT(matchid)
+FROM game 
+JOIN goal 
+ON id = matchid
+GROUP BY stadium
+-------------------------------------------------------------------------------
+#11.
+SELECT id,mdate, COUNT(teamid)
+FROM game 
+JOIN goal 
+ON matchid = id 
+WHERE (team1 = 'POL' OR team2 = 'POL')
+GROUP BY id , mdate
+-----------------------------------------------------------------------------------
+#12.
+SELECT id , mdate , COUNT(teamid)
+FROM game
+JOIN goal
+ON matchid=id
+WHERE teamid= 'GER'
+GROUP BY id,mdate
+-------------------------------------------------------------------------------------
+#13.
+
