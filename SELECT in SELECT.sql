@@ -41,3 +41,10 @@ FROM world
 WHERE gdp > (SELECT MAX(gdp) FROM world WHERE continent ='Europe')
 ------------------------------------------------------------------------------------------
 #7. Largest in each continent
+SELECT continent, name, population FROM world x
+WHERE population >= ALL
+(SELECT population FROM world y
+WHERE y.continent=x.continent
+AND population>0)
+-------------------------------------------------------------------------------------------
+#8. First country of each continent (alphabetically)
