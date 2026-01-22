@@ -57,4 +57,23 @@ ON c.actorid = a.id
 WHERE a.name = 'Harrison Ford'
 AND c.ord <> '1'
 ---------------------------------------------------------------------------
+#10. Lead actors in 1962 movies
+SELECT m.title, a.name
+FROM actor a
+JOIN casting c 
+ON a.id = c.actorid
+JOIN movie m 
+ON c.movieid = m.id
+WHERE m.yr = 1962
+AND c.ord = 1
+------------------------------------------------------------------------
+#11. Busy years for Rock Hudson
+SELECT yr,COUNT(title) FROM
+  movie JOIN casting ON movie.id=movieid
+        JOIN actor   ON actorid=actor.id
+WHERE name='Rock Hudson'
+GROUP BY yr
+HAVING COUNT(title) > 2
+---------------------------------------------------------------------------
+#12. 
 
