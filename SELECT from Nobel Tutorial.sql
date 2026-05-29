@@ -51,3 +51,28 @@ WHERE yr = 1980
 SELECT *
 FROM nobel
 WHERE subject='medicine' AND yr < 1910 OR (subject='literature' AND yr >= 2004)
+----------------------------------------------------------------------------------------
+#11. Umlaut
+SELECT *
+FROM nobel
+WHERE winner = 'Peter GRÜNBERG'
+----------------------------------------------------------------------------------------------
+#12. Apostrophe
+SELECT *
+FROM nobel
+WHERE winner = 'Eugene O''Neill'
+-----------------------------------------------------------------------------------------------
+#13. Knights of the realm
+SELECT winner, yr, subject
+FROM nobel
+WHERE winner LIKE 'Sir %'
+ORDER BY yr DESC, winner;
+-----------------------------------------------------------------------------------------------
+#14. Chemistry and Physics last
+SELECT winner, subject
+FROM nobel
+WHERE yr=1984
+ORDER BY 
+CASE WHEN subject IN ('physics','chemistry') THEN 1 ELSE 0 END, subject, winner
+-------------------------------------------------------------------------------------------------
+
